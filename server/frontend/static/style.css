@@ -3,6 +3,11 @@ img{
   align-self: center;
 }
 
+#contact-us-image{
+    width: 1100px;
+    height: 700px
+}
+
 .card{
   border: rgb(103, 102, 105) 3px solid;
   display: flex;  
