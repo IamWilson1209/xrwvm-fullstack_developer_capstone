@@ -100,7 +100,7 @@ def get_dealerships(request, state="All"):
     if (state == "All"):
         endpoint = "/fetchDealers"
     else:
-        endpoint = "/fetchDealers" + state
+        endpoint = "/fetchDealers/" + state
     dealerships = get_request(endpoint)
     return JsonResponse({"status":200, "dealers":dealerships})
 
@@ -132,11 +132,14 @@ def get_dealer_details(request, dealer_id):
 def add_review(request):
     if (request.user.is_anonymous == False):
         data = json.loads(request.body)
+        print("work")
         try:
             # call post_review from the restapi.py
+            print("try")
             response = post_review(data) 
-            return JsonResponse({"Status": 200})
+            return JsonResponse({"status": 200})
         except:
+            print("except")
             return JsonResponse({"status":401,"message":"Error in posting review"})
     else:
         return JsonResponse({"status":403,"message":"Unauthorized"})
