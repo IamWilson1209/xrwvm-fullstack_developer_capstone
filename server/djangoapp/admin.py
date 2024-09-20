@@ -12,14 +12,15 @@ from .models import CarModel, CarMake
 
 
 class CarMakeAdmin(admin.ModelAdmin):
-    fields = ["name", "description"] 
+    fields = ["name", "description"]
     search_fields = ['name']
 
 
 class CarModelAdmin(admin.ModelAdmin):
-    fields = ["car_make", "name", "type", "year"] 
+    fields = ["car_make", "name", "type", "year"]
 
 # Register models here
-# admin.site.register(CarMake)
 admin.site.register(CarMake, CarMakeAdmin)
+
+
 admin.site.register(CarModel, CarModelAdmin)
