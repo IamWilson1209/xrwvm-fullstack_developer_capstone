@@ -19,6 +19,7 @@ class CarMakeAdmin(admin.ModelAdmin):
 class CarModelAdmin(admin.ModelAdmin):
     fields = ["car_make", "name", "type", "year"]
 
+
 # Register models here
 admin.site.register(CarMake, CarMakeAdmin)
 
