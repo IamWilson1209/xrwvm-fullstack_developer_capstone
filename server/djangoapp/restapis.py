@@ -30,10 +30,13 @@ def get_request(endpoint, **kwargs):
 
 def analyze_review_sentiments(text):
     request_url = sentiment_analyzer_url + "analyze/" + text
+    print("request_url: ", request_url)
     try:
         response = requests.get(request_url)
+        print("res in analyze_review_sentiments: ", response)
         return response.json()
-    except requests.exceptions.RequestException as e:
+    except Exception as e:
+        print("EEEEEEEEEEEEEEEEEEEE")
         print(f"exception {e} occurred")
 
 
@@ -43,5 +46,5 @@ def post_review(data_dict):
         response = requests.post(request_url, json=data_dict)
         print(response.json())
         return response.json()
-    except requests.exceptions.RequestException as e:
+    except Exception as e:
         print(f"exception {e} occurred")
